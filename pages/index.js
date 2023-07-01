@@ -1,39 +1,47 @@
 import { useEffect, useState } from "react"
+import Product from "@/components/Product";
 
 export default function Home() {
-  const [productsInfo, setProductsInfo] = useState()
-  useEffect( () => {
-      fetch ('/api/products')
-      .then(response => response.json())
-      .then ;{json => setProductsInfo(json)};
-  }, deps, []);
-  console.log({productsInfo})
+  const [productsInfo, setProductsInfo] = useState([]);
+  const [phrase, setPhrase] = useState('');
+
+useEffect(() => {
+  fetch('/api/products')
+    .then(response => response.json())
+    .then(json => setProductsInfo(json));
+}, []);
+
+const categoriesNames =[...new Set(productsInfo.map(p => p.category))];
+
+let products;
+if(phrase){
+  products = productsInfo.filter(p => p.name.toLowerCase().includes(phrase));
+} else {
+  products = productsInfo;
+}
+
+
+console.log({ productsInfo });
   return (
     <div className="p-5">
+      <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Buscar productos" className="bg-gray-200 w-full py-2 px-4 rounded-xl"></input>
       <div>
-        <h2 className="text-2xl">Mobiles</h2>
-        <div className="py-4"></div>
-        <div className="w-64">
-          <div className="bg-blue-100 p-5 rounded-xl">
-            <img src="/products/iphone.png" alt="iphone"></img>
+      {categoriesNames.map(categoryName =>(
+      <div key={categoryName}>
+        <h2 className="text-2xl py-5  capitalize">{categoryName}</h2>
+        <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+        {products.filter(p => p.category === categoryName).map(productInfo => (
+          <div key={productInfo._id} className="px-5 snap-start">
+          <Product {...productInfo}/>
           </div>
-          <div className="mt-2">
-            <h3 className="font-bold text-lg">
-              Iphone 14 Pro
-            </h3>
-          </div>
-          <p className="text-sm mt-1 leading-4">
-          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor
-          </p>
-          <div className="flex mt-1">
-            <div className="text-2xl font-bold grow">$899</div>
-            <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl">
-             +
-            </button>
+        ))}
+        </div>
+        </div>
+           ))}
+        <div className="py-4">
 
-          </div>
+        </div>
         </div>
       </div>
-    </div>
   )
 }
