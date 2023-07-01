@@ -1,27 +1,19 @@
 import { useEffect, useState } from "react"
 import Product from "@/components/Product";
+import { initMongoose } from "@/lib/mongoose";
+import { findAllProducts } from "./api/products";
 
-export default function Home() {
-  const [productsInfo, setProductsInfo] = useState([]);
+export default function Home({products}) {
   const [phrase, setPhrase] = useState('');
 
-useEffect(() => {
-  fetch('/api/products')
-    .then(response => response.json())
-    .then(json => setProductsInfo(json));
-}, []);
+const categoriesNames =[...new Set(products.map(p => p.category))];
 
-const categoriesNames =[...new Set(productsInfo.map(p => p.category))];
 
-let products;
 if(phrase){
-  products = productsInfo.filter(p => p.name.toLowerCase().includes(phrase));
-} else {
-  products = productsInfo;
+  products = products.filter(p => p.name.toLowerCase().includes(phrase));
 }
 
 
-console.log({ productsInfo });
   return (
     <div className="p-5">
       <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Buscar productos" className="bg-gray-200 w-full py-2 px-4 rounded-xl"></input>
@@ -44,4 +36,14 @@ console.log({ productsInfo });
         </div>
       </div>
   )
+}
+
+export async function getServerSideProps(){
+  await initMongoose();
+  const products = await findAllProducts();
+  return {
+    props: {
+      products: JSON.parse(JSON.stringify(products)),
+    },
+  }
 }
