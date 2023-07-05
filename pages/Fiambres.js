@@ -4,14 +4,13 @@ import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 
-
-export default function Home({ products }) {
+export default function Fiambres({ products }) {
   const [phrase, setPhrase] = useState("");
 
-  let offerProducts = products.filter((p) => p.offer === 'true');
+  let fiambresProducts = products.filter((product) => product.category === "fiambres");
 
   if (phrase) {
-    offerProducts = offerProducts.filter((p) =>
+    fiambresProducts = fiambresProducts.filter((p) =>
       p.name.toLowerCase().includes(phrase)
     );
   }
@@ -22,16 +21,20 @@ export default function Home({ products }) {
         value={phrase}
         onChange={(e) => setPhrase(e.target.value)}
         type="text"
-        placeholder={"Search for products... " }
-        className="bg-gray-200 w-full py-2 px-4 rounded-xl "
+        placeholder="Search for products..."
+        className="bg-gray-200 w-full py-2 px-4 rounded-xl"
       />
-
-      <div className="flex mx-12 mt-12 -mx-5 overflow-x-scroll snap-x scrollbar-hide justify-center flex-wrap flex-row">
-        {offerProducts.map((productInfo) => (
-          <div key={productInfo._id} className="px-5 py-12  snap-start">
-            <Product {...productInfo} />
+      <div>
+        <div>
+          <h2 className="text-2xl py-5 capitalize">Fiambres</h2>
+          <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+            {fiambresProducts.map((productInfo) => (
+              <div key={productInfo._id} className="px-5 snap-start">
+                <Product {...productInfo} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </Layout>
   );

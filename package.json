@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "autoprefixer": "10.4.14",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "heroicons": "^2.0.18",
+    "i": "^0.3.7",
     "mongodb": "^5.6.0",
     "mongoose": "^7.3.1",
     "next": "13.4.7",
@@ -22,5 +25,8 @@
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss": "3.3.2",
     "use-local-storage-state": "^18.3.3"
+  },
+  "devDependencies": {
+    "@types/cacheable-request": "^8.3.2"
   }
 }

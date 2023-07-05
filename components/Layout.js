@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import Navbar from "./Navbar";
 import {useContext, useEffect, useState} from "react";
 import {ProductsContext} from "./ProductsContext";
 
@@ -13,6 +13,7 @@ export default function Layout({children}) {
   }, []);
   return (
     <div>
+      <Navbar/>
       <div className="p-5">
         {success && (
           <div className="mb-5 bg-green-400 text-white text-lg p-5 rounded-xl">
@@ -21,7 +22,6 @@ export default function Layout({children}) {
         )}
         {children}
       </div>
-      <Footer />
     </div>
   );
 }

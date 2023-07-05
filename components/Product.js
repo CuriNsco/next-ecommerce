@@ -7,9 +7,9 @@ export default function Product({_id,name,price,description,picture}) {
     setSelectedProducts(prev => [...prev,_id]);
   }
   return (
-    <div className="w-52">
-      <div className="bg-blue-100 p-5 rounded-xl">
-        <img src={picture} alt=""/>
+    <div className="w-48">
+      <div className="bg-blue-100 rounded-xl ">
+        <img src={picture} alt="" className="w-48 h-48 rounded-xl object-cover"/>
       </div>
       <div className="mt-2">
         <h3 className="font-bold text-lg">{name}</h3>
