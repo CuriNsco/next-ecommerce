@@ -42,7 +42,7 @@ const styles = {
 
     h3Words:"grow font-bold text-gray-400",
 
-    buttonPay:"bg-emerald-500 px-5 py-2 rounded-xl font-bold text-white w-full my-4 shadow-emerald-300 shadow-lg",
+    buttonPay:"bg-emerald-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-emerald-300 shadow-lg",
 
     borderDashed:"flex my-3 border-t pt-3 border-dashed border-emerald-500",
 
@@ -50,9 +50,16 @@ const styles = {
     
     buttonRemoveCheckout:"border border-emerald-500 px-2 rounded-lg text-emerald-500",
 
-    divProductCheckout:"flex mb-5 items-center justify-center bg-gray-100 rounded-xl",
+    divProductCheckout:"flex py-2 items-center justify-center bg-gray-200 rounded-xl",
 
-    imgCheckout:"w-32 rounded-xl",
+    imgCheckout:"w-32 rounded-xl mx-4",
+
+    typeButton:'py-1 px-3 rounded-xl shadow-300 shadow-lg font-semibold my-2 mr-2',
+
+            //layout//
+
+    notificationStyle: 'flex',
+
 }
 
 export default styles;

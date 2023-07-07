@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../components/ProductsContext";
 import styles from "@/styles";
 import Formcheckout from "@/components/Formcheckout";
+import ButtonType from "@/components/ButtonType";
 
 export default function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
@@ -36,26 +37,24 @@ export default function CheckoutPage() {
 
   return (
     <Layout>
-      {!selectedProducts.length && (
-        <div className={styles.noProductsInCart}>No hay productos en el carrito</div>
-      )}
-      {selectedProducts &&
-        selectedProducts.length &&
+      {!selectedProducts.length&&(
+        <div className={styles.noProductsInCart}>No hay productos en el carrito</div>)}
+             {selectedProducts&&selectedProducts.length&&
         productsInfos.map((productInfo) => {
-          const amount = selectedProducts.filter((id) => id === productInfo._id).length;
+          const amount = selectedProducts.filter((id) => id === productInfo._id).length ;
           if (amount === 0) return null;
           return (
             <div className={styles.divProductCheckout} key={productInfo._id}>
               <div
-                style={{ boxShadow: "inset 1px 0px 10px 10px rgba(0,0,0,0.1)" }}
               >
-                <img className={styles.imgCheckout} src={productInfo.picture} alt="" />
+                <img className={styles.imgCheckout} src={productInfo.picture} alt=""/>
               </div>
               <div className="pl-4 items-center">
                 <h3 className="font-bold text-lg">{productInfo.name}</h3>
                 <p className="text-sm leading-4 text-gray-500">{productInfo.description}</p>
                 <div className="flex mt-1">
-                  <div className="grow font-bold">${productInfo.price}</div>
+                  <ButtonType/>
+                  <div className="grow font-bold text-xl flex items-center ml-2">${productInfo.price}</div>
                   <div>
                     <button
                       onClick={() => lessOfThisProduct(productInfo._id)}
@@ -92,7 +91,9 @@ export default function CheckoutPage() {
           </div>
         </div>
         <input type="hidden" name="products" value={selectedProducts && selectedProducts.join(',')} />
+        <div className="flex items-center justify-center">
         <button type="submit" className={styles.buttonPay}>A pagar ${subtotal}</button>
+        </div>
       </form>
     </Layout>
   );

@@ -23,7 +23,7 @@ export default async function handler(req,res) {
     line_items.push({
       quantity,
       price_data: {
-        currency: 'USD',
+        currency: 'ARS',
         product_data: {name:product.name},
         unit_amount: product.price * 100,
       },

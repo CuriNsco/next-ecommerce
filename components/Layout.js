@@ -1,6 +1,12 @@
 import Navbar from "./Navbar";
 import {useContext, useEffect, useState} from "react";
 import {ProductsContext} from "./ProductsContext";
+import styles from "@/styles";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 export default function Layout({children}) {
   const {setSelectedProducts} = useContext(ProductsContext);
@@ -9,19 +15,18 @@ export default function Layout({children}) {
     if (window.location.href.includes('success')) {
       setSelectedProducts([]);
       setSuccess(true);
+      toast.success('Pago recibido');
+    }else if (window.location.href.includes('error')){
+      toast.error('Hubo un error, intente nuevamente');
     }
   }, []);
   return (
     <div>
       <Navbar/>
       <div className="p-5">
-        {success && (
-          <div className="mb-5 bg-green-400 text-white text-lg p-5 rounded-xl">
-            Thanks for your order!
-          </div>
-        )}
         {children}
       </div>
+      <ToastContainer position="top-center" theme="colored" pauseOnHover={false}/>
     </div>
   );
 }
