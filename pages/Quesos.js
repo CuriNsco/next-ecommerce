@@ -3,6 +3,8 @@ import Product from "../components/Product";
 import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
+import SearchBar from "@/components/Searchbar";
+import styles from "@/styles";
 
 export default function Quesos({ products }) {
   const [phrase, setPhrase] = useState("");
@@ -17,25 +19,21 @@ export default function Quesos({ products }) {
 
   return (
     <Layout>
-      <input
-        value={phrase}
-        onChange={(e) => setPhrase(e.target.value)}
-        type="text"
-        placeholder="Search for products..."
-        className="bg-gray-200 w-full py-2 px-4 rounded-xl"
-      />
-      <div>
-        <div>
-          <h2 className="text-2xl py-5 capitalize">Quesos</h2>
-          <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
-            {quesosProducts.map((productInfo) => (
-              <div key={productInfo._id} className="px-5 snap-start">
-                <Product {...productInfo} />
-              </div>
-            ))}
-          </div>
-        </div>
+     <div className="flex justify-center">
+      <SearchBar value={phrase} onChange={(e) => setPhrase(e.target.value)}/>
       </div>
+          <div className=" mx-12 flex justify-center">
+          <h2 className={styles.h2ProductsName}>Quesos</h2>
+          </div>
+            <div>
+              <div  className={styles.divProducts}>
+                {quesosProducts.map((productInfo) => (
+                  <div key={productInfo._id} className={styles.productsOrder}>
+                    <Product {...productInfo} />
+                  </div>
+                ))}
+              </div>
+            </div>
     </Layout>
   );
 }

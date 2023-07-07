@@ -3,6 +3,9 @@ import Product from "../components/Product";
 import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
+import Carouselpicadas from "@/components/Carouselpicadas";
+import SearchBar from "@/components/Searchbar";
+import styles from "@/styles";
 
 
 export default function Home({ products }) {
@@ -18,17 +21,21 @@ export default function Home({ products }) {
 
   return (
     <Layout>
-      <input
-        value={phrase}
-        onChange={(e) => setPhrase(e.target.value)}
-        type="text"
-        placeholder={"Search for products... " }
-        className="bg-gray-200 w-full py-2 px-4 rounded-xl "
-      />
 
-      <div className="flex mx-12 mt-12 -mx-5 overflow-x-scroll snap-x scrollbar-hide justify-center flex-wrap flex-row">
+      <div className="flex justify-center">
+      <SearchBar value={phrase} onChange={(e) => setPhrase(e.target.value)}/>
+      </div>
+     
+
+      <Carouselpicadas/>
+
+      <div className="flex justify-center mt-12">
+      <h2 className={styles.h2ProductsName}>Ofertas de la semana</h2>
+      </div>
+
+      <div className={styles.divProducts}>
         {offerProducts.map((productInfo) => (
-          <div key={productInfo._id} className="px-5 py-12  snap-start">
+          <div key={productInfo._id} className={styles.productsOrder}>
             <Product {...productInfo} />
           </div>
         ))}
