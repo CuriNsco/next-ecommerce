@@ -44,7 +44,7 @@ inputs:"bg-white w-full rounded-lg px-4 py-2 mb-2 text-center",
 
 h3Words:"grow font-bold text-gray-400",
 
-buttonPay:"bg-emerald-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-emerald-300 shadow-lg",
+buttonPay:"bg-red-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-emerald-300 shadow-lg",
 
 borderDashed:"flex my-3 border-t pt-3 border-dashed border-emerald-500",
 
