@@ -4,7 +4,7 @@ const modules = {
     //info productos//
 divProducts:"flex mx-12 my-4 overflow-x-scroll scrollbar-hide snap-x flex-wrap justify-center",
 
-h2ProductsName:"text-4xl py-5 capitalize font-semibold",
+h2ProductsName:"text-xl py-5 capitalize font-semibold",
 
 productsOrder:"px-12 py-4 snap-start",
 
@@ -48,7 +48,7 @@ buttonPay:"bg-red-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow
 
 borderDashed:"flex my-3 border-t pt-3 border-dashed border-emerald-500",
 
-buttonAddCheckout:"bg-emerald-500 px-2 rounded-lg text-white",
+buttonAddCheckout:"bg-emerald-500 px-2 rounded-lg text-black",
 
 buttonRemoveCheckout:"border border-emerald-500 px-2 rounded-lg text-emerald-500",
 

@@ -12,9 +12,9 @@ const [comments,setComments]=useState("");
 const [number, setNumber] = useState('');
 
 return(
-<div className="mt-8 flex rounded-xl bg-gray-500">  
+<div className="mt-8 flex rounded-xl bg-gray-200">  
       <div className="flex flex-col w-full items-center justify-center px-12">
-          <input name="address" value={address} onChange={e => setAddress(e.target.value)} className={modules.inputs}type="text" placeholder="Calle y numero" required/>
+          <input name="address" value={address} onChange={e => setAddress(e.target.value)} className="bg-white w-full rounded-lg px-4 py-2 mb-2 text-center"type="text" placeholder="Calle y numero" required/>
 
           <input name="city" value={city} onChange={e => setCity(e.target.value)}  className={modules.inputs} type="text" placeholder="Referencias ej: porton verde" required/>
 

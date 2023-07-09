@@ -39,14 +39,16 @@ export default function CheckoutPage() {
     <Layout>
       {!selectedProducts.length&&(
         <div className={modules.noProductsInCart}>No hay productos en el carrito</div>)}
-             {selectedProducts&&selectedProducts.length > 0 &&
-        productsInfos.map((productInfo) => {
-          const amount = selectedProducts.filter((id) => id === productInfo._id).length ;
+             {selectedProducts&&selectedProducts.length >0 &&
+        productsInfos
+        .filter ((productInfo) => selectedProducts.includes (productInfo._id))
+        .map((productInfo) => {
+          const amount = selectedProducts.filter((id) => id === productInfo._id).length;
           return (
-            <div className={modules.divProductCheckout} key={productInfo._id}>
+            <div className="flex py-2 items-center justify-center bg-gray-200 rounded-xl" key={productInfo._id}>
               <div
               >
-                <img className={modules.imgCheckout} src={productInfo.picture} alt=""/>
+                <img className="w-32 rounded-xl mx-4" src={productInfo.picture} alt=""/>
               </div>
               <div className="pl-4 items-center">
                 <h3 className="font-bold text-lg">{productInfo.name}</h3>
@@ -57,7 +59,7 @@ export default function CheckoutPage() {
                   <div>
                     <button
                       onClick={() => lessOfThisProduct(productInfo._id)}
-                      className={modules.buttonRemoveCheckout}
+                      className="border border-emerald-500 px-2 rounded-lg text-emerald-500"
                     >
                       -
                     </button>
@@ -81,17 +83,17 @@ export default function CheckoutPage() {
         <Formcheckout/>
         <div className="mt-8">
           <div className="flex my-3">
-            <h3 className={modules.h3Words}>Subtotal:</h3>
+            <h3 className="grow font-bold text-gray-400">Subtotal:</h3>
             <h3 className="font-bold">${subtotal}</h3>
           </div>
-          <div className={modules.borderDashed}>
+          <div className="flex my-3 border-t pt-3 border-dashed border-emerald-500">
             <h3 className={modules.h3Words}>Total:</h3>
             <h3 className="font-bold">${subtotal}</h3>
           </div>
         </div>
         <input type="hidden" name="products" value={selectedProducts && selectedProducts.join(',')} />
         <div className="flex items-center justify-center">
-        <button type="submit" className={modules.buttonPay}>A pagar ${subtotal}</button>
+        <button type="submit" className="bg-green-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-green-300 shadow-lg">A pagar ${subtotal}</button>
         </div>
       </form>
     </Layout>
