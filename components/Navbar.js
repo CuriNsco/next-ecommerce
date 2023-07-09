@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductsContext } from "../components/ProductsContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { navLinks } from "./constants";
 import Image from "next/image";
 import modules from "@/styles.modules";
+import { close, menu } from "../public/assets";
 
 export default function Navbar() {
   const router = useRouter();
@@ -14,10 +15,13 @@ export default function Navbar() {
   const { selectedProducts = [] } = useContext(ProductsContext);
   const cartItemCount = selectedProducts.length;
 
+  const [active, setActive] = useState("Home");
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10">
-      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100} />
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+    <nav className={`${modules.contPrincipalNav}`}>
+      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100}  className="invisible sm:visible"/>
+      <ul className={`${modules.ulNav}`}>
         {navLinks.map((item, index) => (
           <li
             key={index}
@@ -26,22 +30,49 @@ export default function Navbar() {
             } ${index === lastIndex ? "mr-0" : "mr-10"}`}
           >
             {index === lastIndex ? (
-              <Link href={lastNavLinks.url} className="sm:flex sm:px-2 sm:font-roboto sm:text-md sm:px-4 sm:text-[#0d2f3f] sm:font-[550] sm:mx-2 sm:my-4">
+              <Link href={lastNavLinks.url} className={`${modules.linkCarritoNavbar}`}>
                 {lastNavLinks.label}
                 {cartItemCount > 0 && (
-                  <span className="ml-1 text-sm font-semibold bg-red-500 text-white px-2 py-1 rounded-full">
+                  <span className={`${modules.counterCart}`}>
                     {cartItemCount}
                   </span>
                 )}
               </Link>
             ) : (
-              <Link href={item.url} className="sm:flex sm:px-2 sm:font-roboto sm:text-md sm:px-4 sm:text-[#0d2f3f] sm:font-[550] sm:mx-2 sm:my-4">
+              <Link href={item.url} className={`${modules.linksNavbar}`}>
                 {item.label}
               </Link>
             )}
           </li>
         ))}
       </ul>
+
+      {/* Tres líneas de la navbar */}
+      <div className="sm:hidden flex flex-1 justify-end items-center">
+        <img
+          src={toggle ? close : menu}
+          alt="menu"
+          className="w-[28px] h-[28px] object-contain mr-4"
+          onClick={() => setToggle(!toggle)}
+        />
+
+        {/* Info de la navbar chica */}
+        <div className={`${!toggle ? "hidden" : "flex"} p-6 bg-[#0d2f3f] absolute top-20 mx-2 my-2 min-w-[340px] rounded-xl sidebar z-10`}>
+          <ul className="list-none flex justify-end items-center flex-1 flex-col">
+            {navLinks.map((item, index) => (
+              <li
+                key={item.url}
+                className={`font-roboto font-semibold cursor-pointer text-[16px] ${
+                  index=== lastIndex ? "text-white" : "text-[#f8f7f1]"
+                } ${index === lastIndex.length - 1 ? "mb-0" : "mb-4"}`}
+                onClick={() => setActive(item.label)}
+              >
+                <a href={`#${item.url}`}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 }
