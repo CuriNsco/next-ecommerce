@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ProductsContext } from "./ProductsContext";
-import styles from "@/styles";
+import modules from "@/styles.modules";
 
 export default function Product({ _id, name, price, description, picture }) {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
@@ -25,28 +25,28 @@ export default function Product({ _id, name, price, description, picture }) {
   return (
     <div className="w-48">
       <div className="bg-blue-100 rounded-xl">
-        <img src={picture} alt="" className={styles.imageProduct}/>
+        <img src={picture} alt="" className={modules.imageProduct}/>
       </div>
       <div className="mt-2">
-        <h3 className={styles.nameProduct}>{name}</h3>
+        <h3 className={modules.nameProduct}>{name}</h3>
       </div>
-      <p className={styles.descriptionProduct}>{description}</p>
+      <p className={modules.descriptionProduct}>{description}</p>
       <div className="flex mt-1 flex-row">
         <button
           onClick={addProduct}
-          className={styles.buttonAdd}
+          className={modules.buttonAdd}
         >
           +
         </button>
         {isProductSelected && (
           <button
             onClick={removeProduct}
-            className={styles.buttonRemove}
+            className={modules.buttonRemove}
           >
             -
           </button>
         )}
-        <div className={styles.priceProduct}>${price}</div>
+        <div className={modules.priceProduct}>${price}</div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import SearchBar from "@/components/Searchbar";
-import styles from "@/styles";
+import modules from "@/styles.modules";
 
 export default function Quesos({ products }) {
   const [phrase, setPhrase] = useState("");
@@ -23,12 +23,12 @@ export default function Quesos({ products }) {
       <SearchBar value={phrase} onChange={(e) => setPhrase(e.target.value)}/>
       </div>
           <div className="mx-12 flex justify-center">
-          <h2 className={styles.h2ProductsName}>Embutidos</h2>
+          <h2 className={modules.h2ProductsName}>Embutidos</h2>
           </div>
           <div>
-          <div className={styles.divProducts}>
+          <div className={modules.divProducts}>
             {embutidosProducts.map((productInfo) => (
-              <div key={productInfo._id} className={styles.productsOrder}>
+              <div key={productInfo._id} className={modules.productsOrder}>
                 <Product {...productInfo} />
               </div>
             ))}

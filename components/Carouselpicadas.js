@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Pagination } from 'swiper/modules';
 import { Picada2, Picada4, Picada6 } from "../public/assets/index";
 
 // Utiliza las imágenes en tu código

@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../components/ProductsContext";
-import styles from "@/styles";
+import modules from "@/styles.modules";
 import Formcheckout from "@/components/Formcheckout";
 import ButtonType from "@/components/ButtonType";
 
@@ -38,16 +38,15 @@ export default function CheckoutPage() {
   return (
     <Layout>
       {!selectedProducts.length&&(
-        <div className={styles.noProductsInCart}>No hay productos en el carrito</div>)}
-             {selectedProducts&&selectedProducts.length&&
+        <div className={modules.noProductsInCart}>No hay productos en el carrito</div>)}
+             {selectedProducts&&selectedProducts.length > 0 &&
         productsInfos.map((productInfo) => {
           const amount = selectedProducts.filter((id) => id === productInfo._id).length ;
-          if (amount === 0) return null;
           return (
-            <div className={styles.divProductCheckout} key={productInfo._id}>
+            <div className={modules.divProductCheckout} key={productInfo._id}>
               <div
               >
-                <img className={styles.imgCheckout} src={productInfo.picture} alt=""/>
+                <img className={modules.imgCheckout} src={productInfo.picture} alt=""/>
               </div>
               <div className="pl-4 items-center">
                 <h3 className="font-bold text-lg">{productInfo.name}</h3>
@@ -58,7 +57,7 @@ export default function CheckoutPage() {
                   <div>
                     <button
                       onClick={() => lessOfThisProduct(productInfo._id)}
-                      className={styles.buttonRemoveCheckout}
+                      className={modules.buttonRemoveCheckout}
                     >
                       -
                     </button>
@@ -68,7 +67,7 @@ export default function CheckoutPage() {
                     <button
                       onClick={() => moreOfThisProduct(productInfo._id)}
 
-                      className={styles.buttonAddCheckout}
+                      className={modules.buttonAddCheckout}
                     >
                       +
                     </button>
@@ -82,17 +81,17 @@ export default function CheckoutPage() {
         <Formcheckout/>
         <div className="mt-8">
           <div className="flex my-3">
-            <h3 className={styles.h3Words}>Subtotal:</h3>
+            <h3 className={modules.h3Words}>Subtotal:</h3>
             <h3 className="font-bold">${subtotal}</h3>
           </div>
-          <div className={styles.borderDashed}>
-            <h3 className={styles.h3Words}>Total:</h3>
+          <div className={modules.borderDashed}>
+            <h3 className={modules.h3Words}>Total:</h3>
             <h3 className="font-bold">${subtotal}</h3>
           </div>
         </div>
         <input type="hidden" name="products" value={selectedProducts && selectedProducts.join(',')} />
         <div className="flex items-center justify-center">
-        <button type="submit" className={styles.buttonPay}>A pagar ${subtotal}</button>
+        <button type="submit" className={modules.buttonPay}>A pagar ${subtotal}</button>
         </div>
       </form>
     </Layout>

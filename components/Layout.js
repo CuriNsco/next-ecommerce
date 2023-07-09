@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
 import {useContext, useEffect, useState} from "react";
 import {ProductsContext} from "./ProductsContext";
-import styles from "@/styles";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

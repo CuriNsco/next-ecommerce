@@ -1,4 +1,4 @@
-import styles from "@/styles";
+import modules from "@/styles.modules";
 import { useState } from "react";
 
 export default function ButtonType(){
@@ -7,14 +7,14 @@ export default function ButtonType(){
     return(
         <div className="flex">
             <button onClick={() => setSelectionType('feta')}
-                    className={`${selectionType === 'feta' ? 'bg-emerald-500' : 'bg-gray-200'} ${styles.typeButton}`}>
+                    className={`${selectionType === 'feta' ? 'bg-emerald-500' : 'bg-gray-200'} ${modules.typeButton}`}>
                       feta
             </button>
 
              <button
                     onClick={() => setSelectionType("trozo")}
                     className={`${ selectionType === "trozo" ? "bg-emerald-500" :
-                    "bg-gray-200"} ${styles.typeButton} `} >
+                    "bg-gray-200"} ${modules.typeButton} `} >
                     trozo
             </button>
             

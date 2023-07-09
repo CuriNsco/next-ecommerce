@@ -5,7 +5,7 @@ import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import Carouselpicadas from "@/components/Carouselpicadas";
 import SearchBar from "@/components/Searchbar";
-import styles from "@/styles";
+import modules from "@/styles.modules";
 
 
 export default function Home({ products }) {
@@ -30,12 +30,12 @@ export default function Home({ products }) {
       <Carouselpicadas/>
 
       <div className="flex justify-center mt-12">
-      <h2 className={styles.h2ProductsName}>Ofertas de la semana</h2>
+      <h2 className={modules.h2ProductsName}>Ofertas de la semana</h2>
       </div>
 
-      <div className={styles.divProducts}>
+      <div className={modules.divProducts}>
         {offerProducts.map((productInfo) => (
-          <div key={productInfo._id} className={styles.productsOrder}>
+          <div key={productInfo._id} className={modules.productsOrder}>
             <Product {...productInfo} />
           </div>
         ))}
