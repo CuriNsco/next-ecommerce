@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { navLinks } from "./constants";
 import Image from "next/image";
 import modules from "@/styles.modules";
-import { close, menu } from "../public/assets";
+import { close, menu, cart } from "../public/assets";
 
 export default function Navbar() {
   const router = useRouter();
@@ -49,12 +49,19 @@ export default function Navbar() {
 
       {/* Tres líneas de la navbar */}
       <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="relative"> </div>
         <img
           src={toggle ? close : menu}
           alt="menu"
           className="w-[28px] h-[28px] object-contain mr-4"
           onClick={() => setToggle(!toggle)}
         />
+        {cartItemCount > 0 && (
+            <div className="absolute top-10 -right-4 bg-red-500  w-6 h-6 flex justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-xl">
+              <img src={cart} alt="cart" className="w-[22px] h-[22px]"/>
+              {cartItemCount}
+            </div>
+        )}
 
         {/* Info de la navbar chica */}
         <div className={`${!toggle ? "hidden" : "flex"} p-6 bg-[#0d2f3f] absolute top-20 mx-2 my-2 min-w-[340px] rounded-xl sidebar z-10`}>
@@ -67,7 +74,7 @@ export default function Navbar() {
                 } ${index === lastIndex.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(item.label)}
               >
-                <a href={`#${item.url}`}>{item.label}</a>
+                <a href={`${item.url}`}>{item.label}</a>
               </li>
             ))}
           </ul>

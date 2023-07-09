@@ -3,3 +3,4 @@ export const Picada4 = "/assets/Picada4.png";
 export const Picada6 = "/assets/Picada6.png";
 export const close = '/assets/close.svg';
 export const menu = '/assets/menu.svg';
+export const cart = '/assets/cart.svg';
