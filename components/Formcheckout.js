@@ -12,7 +12,7 @@ const [comments,setComments]=useState("");
 const [number, setNumber] = useState('');
 
 return(
-<div className="mt-8 flex rounded-xl bg-gray-200">  
+<div className="mt-8 flex rounded-xl bg-gray-500">  
       <div className="flex flex-col w-full items-center justify-center px-12">
           <input name="address" value={address} onChange={e => setAddress(e.target.value)} className={modules.inputs}type="text" placeholder="Calle y numero" required/>
 
