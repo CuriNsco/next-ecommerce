@@ -5,7 +5,7 @@ import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import Carouselpicadas from "@/components/Carouselpicadas";
 import SearchBar from "@/components/Searchbar";
-import modules from "@/styles.modules";
+
 
 
 export default function Home({ products }) {
@@ -30,12 +30,12 @@ export default function Home({ products }) {
       <Carouselpicadas/>
 
       <div className="flex justify-center mt-12">
-      <h2 className={`${modules.h2ProductsName}`}>Ofertas de la semana</h2>
+      <h2 className="text-4xl py-5 capitalize font-semibold">Ofertas de la semana</h2>
       </div>
 
-      <div className={`${modules.divProducts}`}>
+      <div className="flex mx-4 my-4 overflow-x-scroll scrollbar-hide snap-x flex-wrap justify-start bg-green-200  ">
         {offerProducts.map((productInfo) => (
-          <div key={productInfo._id} className={`${modules.productsOrder}`}>
+          <div key={productInfo._id} className="px-12 py-4 snap-start">
             <Product {...productInfo} />
           </div>
         ))}

@@ -2,7 +2,7 @@
 const modules = {
 
     //info productos//
-divProducts:"flex mx-12 my-4 overflow-x-scroll scrollbar-hide snap-x flex-wrap justify-center",
+divProducts:"flex mx-4 my-4 overflow-x-scroll scrollbar-hide snap-x flex-wrap justify-center ",
 
 h2ProductsName:"text-4xl py-5 capitalize font-semibold",
 
@@ -48,7 +48,7 @@ buttonPay:"bg-green-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shad
 
 borderDashed:"flex my-3 border-t pt-3 border-dashed border-emerald-500",
 
-buttonAddCheckout:"bg-emerald-500 px-2 rounded-lg text-black",
+buttonAddCheckout:"bg-green-500 px-2 rounded-lg text-black text-md",
 
 buttonRemoveCheckout:"border border-emerald-500 px-2 rounded-lg text-emerald-500",
 

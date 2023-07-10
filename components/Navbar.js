@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { navLinks } from "./constants";
 import Image from "next/image";
-import modules from "@/styles.modules";
 import { close, menu, cart } from "../public/assets";
 
 export default function Navbar() {
@@ -19,9 +18,9 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className={`${modules.contPrincipalNav}`}>
+    <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10">
       <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100}  className="invisible sm:visible"/>
-      <ul className={`${modules.ulNav}`}>
+      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((item, index) => (
           <li
             key={index}
@@ -30,16 +29,16 @@ export default function Navbar() {
             } ${index === lastIndex ? "mr-0" : "mr-10"}`}
           >
             {index === lastIndex ? (
-              <Link href={lastNavLinks.url} className={`${modules.linkCarritoNavbar}`}>
+              <Link href={lastNavLinks.url} className="sm:flex sm:px-2 sm:font-roboto sm:text-md sm:px-4 sm:text-[#0d2f3f] sm:font-[550] sm:mx-2 sm:my-4">
                 {lastNavLinks.label}
                 {cartItemCount > 0 && (
-                  <span className={`${modules.counterCart}`}>
+                  <span className="ml-1 text-sm font-semibold bg-red-500 text-white px-2 py-1 rounded-full">
                     {cartItemCount}
                   </span>
                 )}
               </Link>
             ) : (
-              <Link href={item.url} className={`${modules.linksNavbar}`}>
+              <Link href={item.url} className="sm:flex sm:px-2 sm:font-roboto sm:text-md sm:px-4 sm:text-[#0d2f3f] sm:font-[550] sm:mx-2 sm:my-4">
                 {item.label}
               </Link>
             )}

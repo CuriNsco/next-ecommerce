@@ -7,14 +7,14 @@ export default function ButtonType(){
     return(
         <div className="flex">
             <button onClick={() => setSelectionType('feta')}
-                    className={`${selectionType === 'feta' ? 'bg-emerald-500' : 'bg-gray-200'} ${modules.typeButton}`}>
+                    className={`${selectionType === 'feta' ? 'bg-green-500' : 'bg-gray-200'} py-1 px-3 rounded-xl shadow-300 shadow-lg font-semibold my-2 mr-2`}>
                       feta
             </button>
 
              <button
                     onClick={() => setSelectionType("trozo")}
-                    className={`${ selectionType === "trozo" ? "bg-emerald-500" :
-                    "bg-gray-200"} ${modules.typeButton} `} >
+                    className={`${ selectionType === "trozo" ? "bg-green-500" :
+                    "bg-gray-200"} py-1 px-3 rounded-xl shadow-300 shadow-lg font-semibold my-2 mr-2 `} > 
                     trozo
             </button>
             

@@ -27,28 +27,28 @@ export default function Product({ _id, name, price, description, picture }) {
   return (
     <div className="w-48">
       <div className="bg-blue-100 rounded-xl">
-        <img src={picture} alt="" className={`${modules.imageProduct}`}/>
+        <img src={picture} alt="" className="w-48 h-48 rounded-xl object-cover"/>
       </div>
       <div className="mt-2">
-        <h3 className={`${modules.nameProduct}`}>{name}</h3>
+        <h3 className="font-bold text-lg">{name}</h3>
       </div>
-      <p className={`${modules.descriptionProduct}`}>{description}</p>
+      <p className="text-sm mt-1 leading-4 text-gray-500">{description}</p>
       <div className="flex mt-1 flex-row">
         <button
           onClick={addProduct}
-          className={`${modules.buttonAdd}`}
+          className="bg-blue-400 text-white py-1 px-3 rounded-xl mr-2"
         >
           +
         </button>
         {isProductSelected && (
           <button
             onClick={removeProduct}
-            className={`${modules.buttonRemove}`}
+            className="bg-red-500 text-white py-1 px-3 rounded-xl"
           >
             -
           </button>
         )}
-        <div className={`${modules.priceProduct}`}>${price}</div>
+        <div className="text-2xl font-bold mt-2 ml-12">${price}</div>
       </div>
     </div>
   );
