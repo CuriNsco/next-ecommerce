@@ -21,13 +21,19 @@ export default function Quesos({ products }) {
      <div className="flex justify-center">
       <SearchBar value={phrase} onChange={(e) => setPhrase(e.target.value)}/>
       </div>
-          <div className=" mx-12 flex justify-center">
-          <h2 className="text-4xl py-5 capitalize font-semibold">Quesos</h2>
-          </div>
+      <div className="
+      flex justify-center
+      sm:flex  sm:mt-12">
+      <h2 className="
+      text-4xl py-4 capitalize font-semibold mx-4 text-center text-black
+      sm:text-4xl sm:py-5 sm:capitalize sm:font-semibold ">quesos</h2>
+      </div>
             <div>
-              <div  className="flex mx-4 my-4 overflow-x-scroll scrollbar-hide snap-x flex-wrap justify-center ">
+            <div className="
+      flex flex-wrap justify-center 
+      sm:flex sm:mx-4 sm:my-4 sm:overflow-x-scroll sm:scrollbar-hide sm:snap-x sm:flex-wrap sm:justify-center sm:mb-12">
                 {quesosProducts.map((productInfo) => (
-                  <div key={productInfo._id} className="px-12 py-4 snap-start">
+                  <div key={productInfo._id} className="sm:px-12 sm:py-4 sm:snap-start ">
                     <Product {...productInfo} />
                   </div>
                 ))}

@@ -18,8 +18,11 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10">
-      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100}  className="invisible sm:visible"/>
+    <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10 shadow-300 shadow-lg text-center">
+      <div className="w-72 h-full flex justify-end">
+      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100} className="w-[200px]"/>
+      </div>
+
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((item, index) => (
           <li

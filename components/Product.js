@@ -25,31 +25,54 @@ export default function Product({ _id, name, price, description, picture }) {
   const isProductSelected = selectedProducts.includes(_id);
 
   return (
-    <div className="w-48">
-      <div className="bg-blue-100 rounded-xl">
-        <img src={picture} alt="" className="w-48 h-48 rounded-xl object-cover"/>
+    <div className="bg-gray-100 rounded-xl flex justify-center mt-4 mx-2 sm:w-[300px] ">
+
+      <div className="flex flex-col object-cover object-center
+      w-[138px] my-2 mx-4 py-2 text-center items-center
+      sm:rounded-xl sm:w-[200px]">
+
+        <img src={picture} alt="" className="flex w-[150px] h-[150px] rounded-xl 
+        sm:w-48 sm:h-48 sm:rounded-xl sm:object-cover"/>
+
+      <div className="mt-4 
+      sm:mt-2">
+        <h3 className="
+        font-semibold
+        text-black
+        sm:font-bold sm:text-lg sm:text-black">{name}</h3>
       </div>
-      <div className="mt-2">
-        <h3 className="font-bold text-lg">{name}</h3>
-      </div>
-      <p className="text-sm mt-1 leading-4 text-gray-500">{description}</p>
-      <div className="flex mt-1 flex-row">
+
+      <p className="hidden sm:block sm:visible sm:text-sm sm:mt-1 sm:leading-4 sm:text-gray-500">{description}</p>
+
+      <div className="py-2 flex
+       sm:flex sm:mt-1 sm:flex-row">
         <button
           onClick={addProduct}
-          className="bg-blue-400 text-white py-1 px-3 rounded-xl mr-2"
+          className="
+          bg-green-400 text-black py-1 px-3 rounded-full mx-2
+          sm:bg-green-400  sm:py-1 sm:px-3 sm:rounded-xl sm:mr-2"
         >
           +
         </button>
         {isProductSelected && (
           <button
             onClick={removeProduct}
-            className="bg-red-500 text-white py-1 px-3 rounded-xl"
+            className="
+            bg-red-500 text-black py-1 px-3 rounded-full
+            sm:bg-red-500  sm:py-1 sm:px-3 sm:rounded-xl"
           >
             -
           </button>
         )}
-        <div className="text-2xl font-bold mt-2 ml-12">${price}</div>
+
+        <div className="
+        font-semibold text-black text-xl mx-4
+        sm:text-2xl sm:font-bold sm:mt-2 sm:ml-12">${price}</div>
+
       </div>
+      </div>
+
+
     </div>
   );
 }

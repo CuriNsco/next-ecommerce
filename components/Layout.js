@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from "react";
 import {ProductsContext} from "./ProductsContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./Footer";
 
 
 
@@ -22,10 +23,12 @@ export default function Layout({children}) {
   return (
     <div>
       <Navbar/>
-      <div className="p-5">
+      <div className="p-5 bg-white">
         {children}
       </div>
       <ToastContainer position="top-center" theme="colored" pauseOnHover={false}/>
+      <Footer/>
     </div>
+
   );
 }

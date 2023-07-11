@@ -20,11 +20,15 @@ export default function Carouselpicadas() {
             pagination={{
               dynamicBullets: true,
             }}
-            className="mySwiper w-[1200px] h-[300px] bg-red-200 mt-12 object-cover rounded-xl"
+            className="mySwiper 
+            rounded-xl
+            sm:w-[1200px] sm:h-[300px] sm:mt-12 sm:object-cover sm:rounded-xl"
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={image.src} className="w-full h-full object-cover" />
+                <img src={image.src} className="
+                w-full h-full object-fill
+                sm:w-full sm:h-full sm:object-cover" />
               </SwiperSlide>
             ))}
           </Swiper>

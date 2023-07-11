@@ -95,7 +95,7 @@ export default function CheckoutPage() {
         </div>
         <input type="hidden" name="products" value={selectedProducts && selectedProducts.join(',')} />
         <div className="flex items-center justify-center">
-        <button type="submit" className="bg-green-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-green-300 shadow-lg">A pagar ${subtotal}</button>
+        <button type="submit" className="bg-green-500 px-5 py-2 rounded-xl font-bold text-white w-96 my-4 shadow-green-300 shadow-lg ring-2 ring-gray-500">A pagar ${subtotal}</button>
         </div>
       </form>
     </Layout>
