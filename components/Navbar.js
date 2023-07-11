@@ -59,7 +59,7 @@ export default function Navbar() {
           onClick={() => setToggle(!toggle)}
         />
         {cartItemCount > 0 && (
-            <div className="absolute top-10 -right-4 bg-red-500  w-6 h-6 flex justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-xl">
+            <div className="absolute top-10 left-5  bg-red-500  w-6 h-6 flex  justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-xl">
               <img src={cart} alt="cart" className="w-[22px] h-[22px]"/>
               {cartItemCount}
             </div>

@@ -4,6 +4,7 @@ import { ProductsContext } from "../components/ProductsContext";
 import Formcheckout from "@/components/Formcheckout";
 import ButtonType from "@/components/ButtonType";
 
+
 export default function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
   const [productsInfos, setProductsInfos] = useState([]);
@@ -37,45 +38,86 @@ export default function CheckoutPage() {
   return (
     <Layout>
       {!selectedProducts.length&&(
-        <div className="flex justify-center font-semibold">No hay productos en el carrito</div>)}
+        <div className="mt-4 flex justify-center font-semibold text-black">No hay productos en el carrito</div>)}
              {selectedProducts&&selectedProducts.length >0 &&
         productsInfos
         .filter ((productInfo) => selectedProducts.includes (productInfo._id))
         .map((productInfo) => {
           const amount = selectedProducts.filter((id) => id === productInfo._id).length;
           return (
-            <div className="flex py-2 items-center justify-center bg-gray-200 rounded-xl" key={productInfo._id}>
-              <div
-              >
-                <img className="w-32 rounded-xl mx-4" src={productInfo.picture} alt=""/>
+            <div className="flex
+            bg-gray-200 px-3 py-4 rounded-2xl  w-auto
+            my-6
+
+            sm:py-2 sm:items-center sm:justify-center sm:bg-gray-200 sm:rounded-xl sm:my-4" key={productInfo._id}>
+
+              <div className="
+                flex bg-blue-200 rounded-2xl  w-auto
+                sm:bg-red-200 sm:w-[132px] ">
+
+                <img className="
+                flex w-auto rounded-2xl 
+
+                 sm:w-[132px] sm:h-[132px] sm:rounded-xl" src={productInfo.picture} alt=""/>
+
               </div>
-              <div className="pl-4 items-center">
-                <h3 className="font-bold text-lg">{productInfo.name}</h3>
 
-                <p className="text-sm leading-4 text-gray-500">{productInfo.description}</p>
+              <div className="
+              flex flex-col items-center  w-full 
+              sm:pl-4 sm:items-center">
+                <h3 className="flex text-center font-bold text-2xl text-gray-800">{productInfo.name}</h3>
 
-                <div className="flex mt-1">
+                <p className="hidden sm:block sm:text-sm sm:leading-4 sm:text-gray-500">{productInfo.description}</p>
+
+                <div className="flex mt-6 h-auto flex-row sm:mt-1">
                   <ButtonType/>
-                  <div className="grow font-bold text-xl flex items-center ml-2">${productInfo.price}</div>
+                  <div className="
+                  text-lg  px-4
+
+                  grow font-bold sm:text-xl sm:flex sm:items-center sm:ml-2 text-gray-800">${productInfo.price}
                   <div>
+                    <span className="flex font-light text-xs">
+                       /100grs
+                    </span>
+                    </div>
+                  </div>
+                  </div>
+                  <div className="mt-4 flex">
+                                                 {/* button minus */}
+
                     <button
                       onClick={() => lessOfThisProduct(productInfo._id)}
-                      className="border border-emerald-500 px-2 rounded-lg text-emerald-500"
+                      className="
+                      px-4 rounded-full flex items-center
+
+                      border border-red-500 sm:px-2 text-black"
                     >
-                      -
+                                                {/* svg minus button */}
+                      <svg 
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                      </svg>
+
+                                                    {/* button plus */}
                     </button>
-                    <span className="px-2">
+                    <span className="px-2 text-black text-2xl px-4 ">
                       {selectedProducts.filter((id) => id === productInfo._id).length}
                     </span>
                     <button
                       onClick={() => moreOfThisProduct(productInfo._id)}
 
-                      className="bg-green-500 px-2 rounded-lg text-black text-lg"
+                      className="
+                      px-4 flex items-center rounded-full text-black
+                      bg-green-500
+                      sm:px-2"
                     >
-                      +
+                                                   {/* svg plus button */}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}   stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+                    </svg>
                     </button>
+
                   </div>
-                </div>
               </div>
             </div>
           );

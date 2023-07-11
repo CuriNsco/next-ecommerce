@@ -49,24 +49,29 @@ export default function Product({ _id, name, price, description, picture }) {
         <button
           onClick={addProduct}
           className="
-          bg-green-400 text-black py-1 px-3 rounded-full mx-2
-          sm:bg-green-400  sm:py-1 sm:px-3 sm:rounded-xl sm:mr-2"
+          bg-green-500 text-black py-1 px-3 rounded-full mx-2
+           sm:py-1 sm:px-3 sm:rounded-xl sm:mr-2"
         >
-          +
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+          </svg>
+
         </button>
         {isProductSelected && (
           <button
             onClick={removeProduct}
             className="
-            bg-red-500 text-black py-1 px-3 rounded-full
-            sm:bg-red-500  sm:py-1 sm:px-3 sm:rounded-xl"
+            bg-red-500 text-black py-1 px-3 rounded-full"
           >
-            -
+            <svg xmlns="http://www.w3.org/2000/ svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+            </svg>
+
           </button>
         )}
 
         <div className="
-        font-semibold text-black text-xl mx-4
+        font-semibold text-black text-xl mx-1
         sm:text-2xl sm:font-bold sm:mt-2 sm:ml-12">${price}</div>
 
       </div>

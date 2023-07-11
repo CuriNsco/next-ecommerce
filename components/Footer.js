@@ -7,7 +7,7 @@ export default function Footer() {
     p-5 bg-white text-base-200 ring-2 ring-gray-200 
     sm:p-10">
 
-      <div className="flex flex-col items-center justify-center w-full sm:items-center sm:text-center">
+      <div className="flex flex-col items-center justify-center w-full text-center sm:items-center sm:text-center">
         <Image
           src="/products/cartelsinfondo.png"
           alt="Cartel"
@@ -16,9 +16,9 @@ export default function Footer() {
           className="sm:visible"
         />
         <p>
-          ACME Industries Ltd.
+          El Bolson, Rio Negro
           <br />
-          Providing reliable tech since 1992
+          Since 2010
         </p>
       </div>
 
