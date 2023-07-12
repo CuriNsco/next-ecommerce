@@ -53,23 +53,25 @@ export default function CheckoutPage() {
 
               <div className="
                 flex bg-blue-200 rounded-2xl  w-auto
-                sm:bg-red-200 sm:w-[132px] ">
+                sm:bg-red-200 sm:w-[150px] sm:h-[150px] ">
 
                 <img className="
                 flex w-auto rounded-2xl 
 
-                 sm:w-[132px] sm:h-[132px] sm:rounded-xl" src={productInfo.picture} alt=""/>
+                 sm:w-[150px] sm:h-[150px] sm:rounded-xl" src={productInfo.picture} alt=""/>
 
               </div>
 
               <div className="
               flex flex-col items-center  w-full 
-              sm:pl-4 sm:items-center">
-                <h3 className="flex text-center font-bold text-2xl text-gray-800">{productInfo.name}</h3>
+              sm:pl-4 sm:items-start sm:h-[150px] ">
 
-                <p className="hidden sm:block sm:text-sm sm:leading-4 sm:text-gray-500">{productInfo.description}</p>
+                <h3 className="flex text-center font-bold text-2xl text-gray-800
+                 sm:mt-4">{productInfo.name}</h3>
 
-                <div className="flex mt-6 h-auto flex-row sm:mt-1">
+                <p className="hidden sm:block sm:text-sm sm:leading-4 sm:text-gray-500  sm:mt-2">{productInfo.description}</p>
+
+                <div className="flex mt-6 h-auto flex-row sm:mt-1 sm:mt-6">
                   <ButtonType/>
                   <div className="
                   text-lg  px-4
@@ -82,15 +84,17 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                   </div>
-                  <div className="mt-4 flex">
+                                            {/* div botones agregar */}
+                  <div className="mt-4 flex sm:self-end sm:-mt-8 sm:mr-12 ">
+
                                                  {/* button minus */}
 
                     <button
                       onClick={() => lessOfThisProduct(productInfo._id)}
                       className="
-                      px-4 rounded-full flex items-center
+                      px-4 rounded-full flex items-center bg-red-500
 
-                      border border-red-500 sm:px-2 text-black"
+                      border border-red-500 sm:px-2 text-black "
                     >
                                                 {/* svg minus button */}
                       <svg 
@@ -109,7 +113,7 @@ export default function CheckoutPage() {
                       className="
                       px-4 flex items-center rounded-full text-black
                       bg-green-500
-                      sm:px-2"
+                      sm:px-3"
                     >
                                                    {/* svg plus button */}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}   stroke="currentColor" className="w-6 h-6">

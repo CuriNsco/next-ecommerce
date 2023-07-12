@@ -26,7 +26,8 @@ export default function Layout({children}) {
       <div className="p-5 bg-white">
         {children}
       </div>
-      <ToastContainer position="top-center" theme="colored" pauseOnHover={false}/>
+      <ToastContainer position="top-center" theme="colored" pauseOnHover={true} autoClose={10000}
+      toastClassName={`w-[300px] m-auto mt-12 rounded-[10px]`} closeButton={false}/>
       <Footer/>
     </div>
 

@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Picada2, Picada4, Picada6 } from "../public/assets/index";
+import {Autoplay, Pagination, Navigation} from 'swiper/modules'
 
-// Utiliza las imágenes en tu código
 
 
 export default function Carouselpicadas() {
@@ -16,14 +16,35 @@ export default function Carouselpicadas() {
     
       return (
         <>
-          <Swiper
+        <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper 
+        rounded-xl
+        sm:w-[1200px] sm:h-[300px] sm:mt-12 sm:object-cover sm:rounded-xl"
+      >
+          {/* <Swiper
             pagination={{
-              dynamicBullets: true,
+              dynamicBullets: true,    
             }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
             className="mySwiper 
             rounded-xl
             sm:w-[1200px] sm:h-[300px] sm:mt-12 sm:object-cover sm:rounded-xl"
-          >
+          > */}
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <img src={image.src} className="
