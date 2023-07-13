@@ -93,6 +93,7 @@ export default function CheckoutPage() {
                       onClick={() => lessOfThisProduct(productInfo._id)}
                       className="
                       px-4 rounded-full flex items-center bg-red-500
+                      shadow-500 shadow-xl
 
                       border border-red-500 sm:px-2 text-black "
                     >
@@ -113,6 +114,7 @@ export default function CheckoutPage() {
                       className="
                       px-4 flex items-center rounded-full text-black
                       bg-green-500
+                      shadow-500 shadow-xl
                       sm:px-3"
                     >
                                                    {/* svg plus button */}

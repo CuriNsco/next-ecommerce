@@ -34,7 +34,7 @@ export default function Fiambres({ products }) {
       flex flex-wrap justify-center 
       sm:flex sm:mx-4 sm:my-4 sm:overflow-x-scroll sm:scrollbar-hide sm:snap-x sm:flex-wrap sm:justify-center sm:mb-12">
               {fiambresProducts.map((productInfo) => (
-                <div key={productInfo._id} className="sm:px-12 sm:py-4 sm:snap-start ">
+                <div key={productInfo._id} className="sm:px-6 sm:py-4 sm:snap-start ">
                   <Product {...productInfo} />
                 </div>
               ))}

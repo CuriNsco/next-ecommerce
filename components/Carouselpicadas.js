@@ -15,7 +15,7 @@ export default function Carouselpicadas() {
       ];
     
       return (
-        <>
+        <div className='flex  items-start justify-center'>       
         <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -30,21 +30,9 @@ export default function Carouselpicadas() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper 
         rounded-xl
-        sm:w-[1200px] sm:h-[300px] sm:mt-12 sm:object-cover sm:rounded-xl"
+        w-[300px] h-[320px] 
+        sm:w-[1000px] sm:h-[300px] sm:mt-4 sm:object-cover sm:rounded-xl"
       >
-          {/* <Swiper
-            pagination={{
-              dynamicBullets: true,    
-            }}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="mySwiper 
-            rounded-xl
-            sm:w-[1200px] sm:h-[300px] sm:mt-12 sm:object-cover sm:rounded-xl"
-          > */}
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <img src={image.src} className="
@@ -53,6 +41,7 @@ export default function Carouselpicadas() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </>
+          </div>
+
       );
     }

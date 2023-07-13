@@ -7,7 +7,7 @@ export default function Footer() {
     p-5 bg-white text-base-200 ring-2 ring-gray-200 
     sm:p-10">
 
-      <div className="flex flex-col items-center justify-center w-full text-center sm:items-center sm:text-center">
+      <div className="flex flex-col  items-center justify-center w-full text-center sm:justify-center sm:items-start">
         <Image
           src="/products/cartelsinfondo.png"
           alt="Cartel"
@@ -15,7 +15,7 @@ export default function Footer() {
           height={100}
           className="sm:visible"
         />
-        <p>
+        <p className="sm:mx-9">
           El Bolson, Rio Negro
           <br />
           Since 2010
