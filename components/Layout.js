@@ -12,6 +12,7 @@ import Brands from "./brands";
 export default function Layout({children}) {
   const {setSelectedProducts} = useContext(ProductsContext);
   const [success,setSuccess] = useState(false);
+
   useEffect(() => {
     if (window.location.href.includes('success')) {
       setSelectedProducts([]);
@@ -20,7 +21,7 @@ export default function Layout({children}) {
     }else if (window.location.href.includes('error')){
       toast.error('Hubo un error, intente nuevamente');
     }
-  }, []);
+  }, [setSelectedProducts]);
   return (
     <div>
       <Navbar/>

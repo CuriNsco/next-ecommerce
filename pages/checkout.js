@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../components/ProductsContext";
 import Formcheckout from "@/components/Formcheckout";
 import ButtonType from "@/components/ButtonType";
+import Image from "next/image";
 
 
 export default function CheckoutPage() {
@@ -55,11 +56,10 @@ export default function CheckoutPage() {
                 flex bg-blue-200 rounded-2xl  w-auto
                 sm:bg-red-200 sm:w-[150px] sm:h-[150px] ">
 
-                <img className="
+                <Image className="
                 flex w-auto rounded-2xl 
 
-                 sm:w-[150px] sm:h-[150px] sm:rounded-xl" src={productInfo.picture} alt=""/>
-
+                 sm:rounded-xl" src={productInfo.picture} alt="fiambreria" width={150} height={150}/>
               </div>
 
               <div className="

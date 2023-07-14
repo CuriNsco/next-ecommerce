@@ -1,4 +1,5 @@
 import { Bierzo, Doncandido, Piamontesa, Serenisima, Tremblay } from "@/public/assets"
+import Image from "next/image";
 
 export default function Brands (){
     
@@ -18,12 +19,12 @@ export default function Brands (){
         <div className="
         flex flex-wrap items-center justify-center mt-5 mb-10
         sm:my-12 sm:flex-nowrap">
-        {marcas.map((logo) =>(
-            <img src={logo} alt="marcas" className="
+        {marcas.map((logo,index) =>(
+            <Image key={index} src={logo} width={200} height={130} alt="marcas" className="
             
             
             flex w-[120px] mx-2 py-4
-            sm:w-[300px] sm:h-[130px] sm:object-contain sm:mx-6 sm:mix-blend-color-normal" />
+            sm:w-[auto] sm:h-[auto] sm:object-contain sm:mx-6 sm:mix-blend-color-normal" />
         ))}
         </div>
     </div>

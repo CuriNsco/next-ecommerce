@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProductsContext } from "./ProductsContext";
+import Image from "next/image";
 
 
 
@@ -30,8 +31,8 @@ export default function Product({ _id, name, price, description, picture }) {
       w-[138px] my-2 mx-4 py-2 text-center items-center
       sm:rounded-xl sm:w-[200px]">
 
-        <img src={picture} alt="" className="flex w-[150px] h-[150px] rounded-xl 
-        sm:w-48 sm:h-48 sm:rounded-xl sm:object-cover"/>
+        <Image src={picture} alt="producto" width={192} height={192}  className="flex w-[150px] h-[150px] rounded-xl 
+        sm:rounded-xl sm:object-cover"/>
 
       <div className="mt-4 
       sm:mt-2">

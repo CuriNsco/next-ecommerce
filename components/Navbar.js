@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10 shadow-300 shadow-lg text-center">
       <div className="w-72 h-full flex justify-end">
-      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100} className="w-[200px]"/>
+      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100} className="w-auto h-auto" />
       </div>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -52,15 +52,17 @@ export default function Navbar() {
       {/* Tres líneas de la navbar */}
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <div className="relative"> </div>
-        <img
+        <Image
           src={toggle ? close : menu}
           alt="menu"
-          className="w-[28px] h-[28px] object-contain mr-4"
+          width={28}
+          height={28}
+          className="object-contain mr-4"
           onClick={() => setToggle(!toggle)}
         />
         {cartItemCount > 0 && (
             <div className="absolute top- left-5  bg-red-500  w-6 h-6 flex  justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-full">
-              <img src={cart} alt="cart" className="w-[22px] h-[22px]"/>
+              <Image src={cart} alt="cart" width={22} height={22}/>
               {cartItemCount}
             </div>
         )}
