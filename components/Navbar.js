@@ -59,20 +59,23 @@ export default function Navbar() {
           onClick={() => setToggle(!toggle)}
         />
         {cartItemCount > 0 && (
-            <div className="absolute top-10 left-5  bg-red-500  w-6 h-6 flex  justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-full">
+            <div className="absolute top- left-5  bg-red-500  w-6 h-6 flex  justify-center items-center text-black text-sm w-[50px] h-[30px] rounded-full">
               <img src={cart} alt="cart" className="w-[22px] h-[22px]"/>
               {cartItemCount}
             </div>
         )}
 
         {/* Info de la navbar chica */}
-        <div className={`${!toggle ? "hidden" : "flex"} p-6 bg-[#0d2f3f] absolute top-20 mx-2 my-2 min-w-[340px] rounded-xl sidebar z-10`}>
+        <div className={`${!toggle ? "hidden" : "flex"}
+         p-6 bg-gray-200  absolute top-20 mx-2 my-2 w-full  z-10 -mr-5
+         
+         `}>
           <ul className="list-none flex justify-end items-center flex-1 flex-col">
             {navLinks.map((item, index) => (
               <li
                 key={item.url}
-                className={`font-roboto font-semibold cursor-pointer text-[16px] ${
-                  index=== lastIndex ? "text-white" : "text-[#f8f7f1]"
+                className={`font-roboto font-semibold cursor-pointer text-[20px] ${
+                  index=== lastIndex ? "text-gray-900" : "text-gray-900"
                 } ${index === lastIndex.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(item.label)}
               >
