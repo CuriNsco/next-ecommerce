@@ -59,7 +59,7 @@ export default function CheckoutPage() {
                 <Image className="
                 flex w-auto rounded-2xl 
 
-                 sm:rounded-xl" src={productInfo.picture} alt="fiambreria" width={150} height={150}/>
+                sm:w-full sm:rounded-xl" src={productInfo.picture} alt="fiambreria" width={150} height={150}/>
               </div>
 
               <div className="

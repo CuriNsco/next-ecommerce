@@ -4,7 +4,7 @@ import {ProductsContext} from "./ProductsContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./Footer";
-import Brands from "./brands";
+
 
 
 
@@ -30,7 +30,6 @@ export default function Layout({children}) {
       </div>
       <ToastContainer position="top-center" theme="colored" pauseOnHover={true} autoClose={10000}
       toastClassName={`w-[300px] m-auto mt-12 rounded-[10px]`} closeButton={false}/>
-      <Brands/>
       <Footer/>
     </div>
 

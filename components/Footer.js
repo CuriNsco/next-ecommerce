@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { footerLinksTitle } from "./constants";
+import { cartelsinfondo } from "@/public/assets";
 
 export default function Footer() {
   return (
@@ -9,13 +10,13 @@ export default function Footer() {
 
       <div className="flex flex-col  items-center justify-center w-full text-center sm:justify-center sm:items-start">
         <Image
-          src="/products/cartelsinfondo.png"
+          src={cartelsinfondo}
           alt="Cartel"
           width={200}
           height={100}
-          className="sm:visible"
+          className="sm:visible w-[auto] h-[auto]"
         />
-        <p className="sm:mx-9">
+        <p className="sm:mx-16">
           El Bolson, Rio Negro
           <br />
           Since 2010

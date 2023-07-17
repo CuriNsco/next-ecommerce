@@ -11,3 +11,4 @@ export const Doncandido = '/assets/Doncandido.png';
 export const Piamontesa = '/assets/Piamontesa.png';
 export const Tremblay = '/assets/Tremblay.png';
 export const Serenisima = '/assets/Serenisima.png';
+export const cartelsinfondo = '/assets/cartelsinfondo.png';

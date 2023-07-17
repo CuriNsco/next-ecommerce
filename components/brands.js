@@ -21,8 +21,6 @@ export default function Brands (){
         sm:my-12 sm:flex-nowrap">
         {marcas.map((logo,index) =>(
             <Image key={index} src={logo} width={200} height={130} alt="marcas" className="
-            
-            
             flex w-[120px] mx-2 py-4
             sm:w-[auto] sm:h-[auto] sm:object-contain sm:mx-6 sm:mix-blend-color-normal" />
         ))}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { navLinks } from "./constants";
 import Image from "next/image";
-import { close, menu, cart } from "../public/assets";
+import { close, menu, cart, cartelsinfondo } from "../public/assets";
 
 export default function Navbar() {
   const router = useRouter();
@@ -19,8 +19,8 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 bg-white p-5 w-full flex border-t border-gray-200 justify-center space-x-12 text-gray-400 z-10 shadow-300 shadow-lg text-center">
-      <div className="w-72 h-full flex justify-end">
-      <Image src="/products/cartelsinfondo.png" alt="Cartel" width={200} height={100} className="w-auto h-auto" />
+      <div className="w-[auto] h-[auto] flex justify-end">
+      <Image src={cartelsinfondo} alt="Cartel" width={200} height={200} className="w-[auto] h-[auto]" />
       </div>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
