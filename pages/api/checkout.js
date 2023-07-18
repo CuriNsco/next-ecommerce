@@ -7,7 +7,7 @@ export default async function handler(req,res) {
   await initMongoose();
 
   if (req.method !== 'POST') {
-    res.json('should a post but its not!');
+    res.json('funca');
     return;
   }
 
