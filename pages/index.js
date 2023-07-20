@@ -3,7 +3,6 @@ import Product from "../components/Product";
 import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
-import Carouselpicadas from "@/components/Carouselpicadas";
 import SearchBar from "@/components/Searchbar";
 import Brands from "@/components/brands";
 
@@ -27,10 +26,6 @@ export default function Home({ products }) {
       <SearchBar value={phrase} onChange={(e) => setPhrase(e.target.value)}/>
       </div>
      
-      {/* <div className="hidden sm:block sm:flex sm:justify-center sm:mt-12">
-      <Carouselpicadas/>
-      </div> */}
-
       <div className="
       flex justify-center 
       sm:flex  sm:mt-12">
